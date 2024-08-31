@@ -14,7 +14,7 @@ from plugins.users_api import get_user, update_user_info
 from plugins.database import get_file_details
 from pyrogram.errors import *
 from pyrogram.types import *
-from utils import verify_user, check_token, check_verification, get_token
+from utils import verify_user, check_token, check_verification, get_token, react_msg
 from config import *
 import re
 import json
@@ -58,6 +58,10 @@ def get_size(size):
 
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
+    try:
+        await react_msg(client, message)
+    except:
+        pass
     if AUTH_CHANNEL:
         try:
             btn = await is_subscribed(client, message, AUTH_CHANNEL)
