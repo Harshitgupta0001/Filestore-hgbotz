@@ -31,14 +31,14 @@ BOT_USERNAME = environ.get("BOT_USERNAME", "FileShare_Hgbot") # without @
 PORT = environ.get("PORT", "8080")
 
 # Clone Info :-
-CLONE_MODE = bool(environ.get('CLONE_MODE', False)) # Set True or False
+CLONE_MODE = bool(environ.get('CLONE_MODE', True)) # Set True or False
 
 # If Clone Mode Is True Then Fill All Required Variable, If False Then Don't Fill.
 CLONE_DB_URI = environ.get("CLONE_DB_URI", "")
-CDB_NAME = environ.get("CDB_NAME", "cloneuxb")
+CDB_NAME = environ.get("CDB_NAME", "HGBOTZ")
 
 # Database Information
-DB_URI = environ.get("DB_URI", "mongodb+srv://gupta:harsh@cluster0.i5xly.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+DB_URI = environ.get("DB_URI", "mongodbue&wCluster0")
 DB_NAME = environ.get("DB_NAME", "HGBOTZ")
 
 # Auto Delete Information
