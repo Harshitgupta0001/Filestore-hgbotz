@@ -14,10 +14,11 @@ def is_enabled(value, default):
 
 AUTH_CHANNEL = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('AUTH_CHANNEL', '-1002166149059').split()] 
 
-UPDATE = environ.get("SUPPORT", "https://t.me/ultroid_official")
-SUPPORT = environ.get("SUPPORT", "https://t.me/ultroid0fficial_chat")
+
+UPDATE = environ.get("SUPPORT", "")
+SUPPORT = environ.get("SUPPORT", "")
 OWNERID = int(environ.get("OWNERID" ,"6359874284"))
-YT = environ.get("YT", "https://youtube.com/@phdlust")
+YT = environ.get("YT", "")
 
 # Bot Information
 API_ID = int(environ.get("API_ID", "25492855"))
