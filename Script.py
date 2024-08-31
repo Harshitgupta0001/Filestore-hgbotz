@@ -14,7 +14,7 @@ class script(object):
 
     
     CAPTION = """<b>𝚃𝚒𝚃𝚕𝚎✨ 
-    <pre{file_name}</pre>
+    <pre>{file_name}</pre>
 <blockquote>sɪᴢᴇ ⚙️: {file_size}</blockquote>
 """ 
 
