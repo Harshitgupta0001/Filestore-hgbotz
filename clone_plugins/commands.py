@@ -12,10 +12,10 @@ from clone_plugins.dbusers import db
 from clone_plugins.users_api import get_user, update_user_info
 from pyrogram import Client, filters, enums
 from plugins.database import get_file_details
-from pyrogram.errors import ChatAdminRequired, FloodWait
+from pyrogram.errors import *
 from config import BOT_USERNAME, ADMINS
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, CallbackQuery, InputMediaPhoto
-from config import PICS, CUSTOM_FILE_CAPTION, AUTO_DELETE_TIME, AUTO_DELETE, CHNL_LNK
+from pyrogram.types import *
+from config import *
 import re
 import json
 import base64
@@ -52,7 +52,7 @@ async def start(client, message):
         await db.add_user(message.from_user.id, message.from_user.first_name)
     if len(message.command) != 2:
         buttons = [[
-                InlineKeyboardButton('✇ Uᴘᴅᴀᴛᴇs ✇', url=CHNL_LNK),
+                InlineKeyboardButton('✇ Uᴘᴅᴀᴛᴇs ✇', url="https://t.me/HGBOTZ"),
                 InlineKeyboardButton('✨ 𝙲𝙾𝙽𝚃𝙰𝙲𝚃 ✨', url="https://t.me/Harshit_contact_bot")
             ],[
                 InlineKeyboardButton('〄 Hᴇʟᴘ', callback_data='help'),
@@ -183,7 +183,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.message.delete()
     elif query.data == "start":
         buttons = [[
-                InlineKeyboardButton('✇ Uᴘᴅᴀᴛᴇs ✇', url=CHNL_LNK),
+                InlineKeyboardButton('✇ Uᴘᴅᴀᴛᴇs ✇', url="https://t.me/HGBOTZ"),
                 InlineKeyboardButton('✨ 𝙲𝙾𝙽𝚃𝙰𝙲𝚃 ✨', url="https://t.me/Harshit_contact_bot")
             ],[
                 InlineKeyboardButton('〄 Hᴇʟᴘ', callback_data='help'),
