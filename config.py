@@ -22,7 +22,7 @@ YT = environ.get("YT", "https://youtube.com/@phdlust")
 # Bot Information
 API_ID = int(environ.get("API_ID", "25492855"))
 API_HASH = environ.get("API_HASH", "61876db014de51a4ace6b169608be4f1")
-BOT_TOKEN = environ.get("BOT_TOKEN", "7396619227:AAEvQVWWBS-TlzX0pLCG8lFTnnUbAA-nNBQ")
+BOT_TOKEN = environ.get("BOT_TOKEN", "nUbAA-nNBQ")
 
 PICS = (environ.get('PICS', 'https://graph.org/file/0db18dde98ea3d0d4df0a.jpg')).split() # Bot Start Picture
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '6359874284').split()]
