@@ -16,12 +16,21 @@ from pyrogram.errors import *
 from config import BOT_USERNAME, ADMINS
 from pyrogram.types import *
 from config import *
+from utils import react_msg 
 import re
 import json
 import base64
 from config import DB_URI as MONGO_URL
 from pymongo import MongoClient
 
+mongo_client = MongoClient(MONGO_URL)
+mongo_db = mongo_client["cloned_vjbotz"]
+
+logger = logging.getLogger(__name__)
+
+# Don't Remove Credit Tg - @VJ_Botz
+# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
+# Ask Doubt on telegram @KingVJ01
 async def is_subscribed(bot, query, channel):
     btn = []
     for id in channel:
@@ -33,15 +42,6 @@ async def is_subscribed(bot, query, channel):
         except Exception as e:
             pass
     return btn
-
-mongo_client = MongoClient(MONGO_URL)
-mongo_db = mongo_client["cloned_vjbotz"]
-
-logger = logging.getLogger(__name__)
-
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
 
     
 def get_size(size):
@@ -61,6 +61,10 @@ def get_size(size):
 
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
+    try:
+        await react_msg(client, message)
+    except:
+        pass
     if AUTH_CHANNEL:
         try:
             btn = await is_subscribed(client, message, AUTH_CHANNEL)
