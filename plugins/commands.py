@@ -343,7 +343,7 @@ async def start(client, message):
     )
     if STREAM_MODE == True:
         g = await x.reply_text(
-            text=f"**•• ʏᴏᴜ ᴄᴀɴ ɢᴇɴᴇʀᴀᴛᴇ ᴏɴʟɪɴᴇ sᴛʀᴇᴀᴍ ʟɪɴᴋ ᴏғ ʏᴏᴜʀ ғɪʟᴇ ᴀɴᴅ ᴀʟsᴏ ғᴀsᴛ ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ ғᴏʀ ʏᴏᴜʀ ғɪʟᴇ ᴄʟɪᴄᴋɪɴɢ ᴏɴ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ 👇**",
+            text=f"",
             quote=True,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
@@ -531,8 +531,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
 # Ask Doubt on telegram @KingVJ01
 
             button = [[
-                InlineKeyboardButton("🚀 Fast Download 🚀", url=download),  # we download Link
-                InlineKeyboardButton('🖥️ Watch online 🖥️', url=stream)
+                InlineKeyboardButton(" Fast Download ", url=download),  # we download Link
+                InlineKeyboardButton(' Watch online ', url=stream)
             ]]
             reply_markup=InlineKeyboardMarkup(button)
             await log_msg.reply_text(
@@ -542,14 +542,14 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 reply_markup=reply_markup
             )
             button = [[
-                InlineKeyboardButton("🚀 Fast Download 🚀", url=download),  # we download Link
-                InlineKeyboardButton('🖥️ Watch online 🖥️', url=stream)
+                InlineKeyboardButton(" Fast Download ", url=download),  # we download Link
+                InlineKeyboardButton(' Watch online ', url=stream)
             ],[
                 InlineKeyboardButton("• ᴡᴀᴛᴄʜ ɪɴ ᴡᴇʙ ᴀᴘᴘ •", web_app=WebAppInfo(url=stream))
             ]]
             reply_markup=InlineKeyboardMarkup(button)
             await query.message.reply_text(
-                text="•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ ☠︎⚔",
+                text="•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ",
                 quote=True,
                 disable_web_page_preview=True,
                 reply_markup=reply_markup
