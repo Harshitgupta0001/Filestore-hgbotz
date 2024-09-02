@@ -36,9 +36,9 @@ async def gen_link_s(client: Client, message):
     # Get the bot's username
     bot_username = (await client.get_me()).username
     share_link = f"https://t.me/{bot_username}?start={outstr}"
-    await message.reply(f"<b>⭕ ʜᴇʀᴇ ɪs ʏᴏᴜʀ ʟɪɴᴋ:\n\n🔗 ᴏʀɪɢɪɴᴀʟ ʟɪɴᴋ :- {share_link}</b>")
+    await message.reply(f"<b><pre>⭕ ʜᴇʀᴇ ɪs ʏᴏᴜʀ ʟɪɴᴋ:</pre>\n\n<blockquote>🔗 ᴏʀɪɢɪɴᴀʟ ʟɪɴᴋ :- {share_link}</blockquote></b>")
     short_link = await get_short_link(user, share_link)
-    await message.reply(f"<b>⭕ ʜᴇʀᴇ ɪs ʏᴏᴜʀ ʟɪɴᴋ:\n\n🖇️ sʜᴏʀᴛ ʟɪɴᴋ :- {short_link}</b>")
+    await message.reply(f"<b><pre>⭕ ʜᴇʀᴇ ɪs ʏᴏᴜʀ ʟɪɴᴋ:</pre>\n\n<blockquote>🖇️ sʜᴏʀᴛ ʟɪɴᴋ :- {short_link}</blockquote></b>")
 
 
 # Don't Remove Credit Tg - @VJ_Botz
