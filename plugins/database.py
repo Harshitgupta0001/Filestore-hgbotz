@@ -33,7 +33,7 @@ COLLECTION_NAME = "Telegram_Files"
 client = AsyncIOMotorClient(DB_URI)
 db = client[DB_NAME]
 instance = Instance.from_db(db)
-users = db.users
+
 
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
@@ -112,17 +112,6 @@ def unpack_new_file_id(new_file_id):
     file_ref = encode_file_ref(decoded.file_reference)
     return file_id, file_ref
 
-    # Total User
-async def total_user():
-    user = await users.count_documents({})
-    return user
-
-async def getid():
-    all_users = users.find({})
-    return all_users
-
-async def delete(id):
-    await users.delete_one(id)
 
 
 # Don't Remove Credit Tg - @VJ_Botz
