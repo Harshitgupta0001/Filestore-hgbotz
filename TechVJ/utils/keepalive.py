@@ -2,7 +2,7 @@ import asyncio
 import logging
 import aiohttp
 import traceback
-from config import PING_INTERVAL
+from config import *
 
 
 async def ping_server():
