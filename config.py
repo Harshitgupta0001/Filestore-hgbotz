@@ -26,7 +26,7 @@ API_HASH = environ.get("API_HASH", "b5a46bd0f2bfb81a06cf5995ec7f0da8")
 BOT_TOKEN = environ.get("BOT_TOKEN", "8004353968:AAFQUZ5-3fTpCaaFrn_jqK6XjVH-0mPPqGs")
 
 PICS = (environ.get('PICS', '')).split() # Bot Start Picture
-ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '6359874284').split()]
+ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '6359874284 6615241830').split()]
 BOT_USERNAME = environ.get("BOT_USERNAME", "viralsnap99bot") # without @
 PORT = environ.get("PORT", "8080")
 
