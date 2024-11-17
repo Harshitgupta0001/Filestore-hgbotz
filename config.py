@@ -38,8 +38,8 @@ CLONE_DB_URI = environ.get("CLONE_DB_URI", "")
 CDB_NAME = environ.get("CDB_NAME", "HGBOTZ")
 
 # Database Information
-DB_URI = environ.get("DB_URI", "mongodbue&wCluster0")
-DB_NAME = environ.get("DB_NAME", "HGBOTZ")
+DB_URI = environ.get("DB_URI", "mongodb+srv://harsh:gunnu@cluster0.0uqkd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+DB_NAME = environ.get("DB_NAME", "HGBOTZPAID")
 
 # Auto Delete Information
 AUTO_DELETE_MODE = bool(environ.get('AUTO_DELETE_MODE', True)) # Set True or False
