@@ -12,26 +12,26 @@ def is_enabled(value, default):
     else:
         return default
 
-AUTH_CHANNEL = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('AUTH_CHANNEL', '-1002237286662').split()] 
+AUTH_CHANNEL = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('AUTH_CHANNEL', '-1002283170516').split()] 
 
 
 UPDATE = environ.get("SUPPORT", "")
 SUPPORT = environ.get("SUPPORT", "")
-OWNERID = int(environ.get("OWNERID" ,"6359874284"))
+OWNERID = int(environ.get("OWNERID" ,"6615241830"))
 YT = environ.get("YT", "")
 
 # Bot Information
-API_ID = int(environ.get("API_ID", "25492855"))
-API_HASH = environ.get("API_HASH", "61876db014de51a4ace6b169608be4f1")
-BOT_TOKEN = environ.get("BOT_TOKEN", "nUbAA-nNBQ")
+API_ID = int(environ.get("API_ID", "28342004"))
+API_HASH = environ.get("API_HASH", "b5a46bd0f2bfb81a06cf5995ec7f0da8")
+BOT_TOKEN = environ.get("BOT_TOKEN", "8004353968:AAFQUZ5-3fTpCaaFrn_jqK6XjVH-0mPPqGs")
 
-PICS = (environ.get('PICS', 'https://graph.org/file/34384a407532bf5738721.jpg')).split() # Bot Start Picture
+PICS = (environ.get('PICS', '')).split() # Bot Start Picture
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '6359874284').split()]
-BOT_USERNAME = environ.get("BOT_USERNAME", "FileShare_Hgbot") # without @
+BOT_USERNAME = environ.get("BOT_USERNAME", "viralsnap99bot") # without @
 PORT = environ.get("PORT", "8080")
 
 # Clone Info :-
-CLONE_MODE = bool(environ.get('CLONE_MODE', True)) # Set True or False
+CLONE_MODE = bool(environ.get('CLONE_MODE', False)) # Set True or False
 
 # If Clone Mode Is True Then Fill All Required Variable, If False Then Don't Fill.
 CLONE_DB_URI = environ.get("CLONE_DB_URI", "")
@@ -45,8 +45,8 @@ DB_NAME = environ.get("DB_NAME", "HGBOTZ")
 AUTO_DELETE_MODE = bool(environ.get('AUTO_DELETE_MODE', True)) # Set True or False
 
 # If Auto Delete Mode Is True Then Fill All Required Variable, If False Then Don't Fill.
-AUTO_DELETE = int(environ.get("AUTO_DELETE", "30")) # Time in Minutes
-AUTO_DELETE_TIME = int(environ.get("AUTO_DELETE_TIME", "1800")) # Time in Seconds
+AUTO_DELETE = int(environ.get("AUTO_DELETE", "10")) # Time in Minutes
+AUTO_DELETE_TIME = int(environ.get("AUTO_DELETE_TIME", "600")) # Time in Seconds
 
 # Channel Information
 LOG_CHANNEL = int(environ.get("LOG_CHANNEL", "-1002155023199"))
@@ -56,7 +56,7 @@ CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", f"{script.CAPTION}")
 BATCH_FILE_CAPTION = environ.get("BATCH_FILE_CAPTION", CUSTOM_FILE_CAPTION)
 
 # Enable - True or Disable - False
-PUBLIC_FILE_STORE = is_enabled((environ.get('PUBLIC_FILE_STORE', "True")), True)
+PUBLIC_FILE_STORE = is_enabled((environ.get('PUBLIC_FILE_STORE', "False")), True)
 
 # Verify Info :-
 VERIFY_MODE = bool(environ.get('VERIFY_MODE', False)) # Set True or False
