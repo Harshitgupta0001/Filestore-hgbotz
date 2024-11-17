@@ -92,6 +92,18 @@ async def verupikkals(bot, message):
     time_taken = datetime.timedelta(seconds=int(time.time()-start_time))
     await sts.edit(f"Broadcast Completed:\nCompleted in {time_taken} seconds.\n\nTotal Users {total_users}\nCompleted: {done} / {total_users}\nSuccess: {success}\nBlocked: {blocked}\nDeleted: {deleted}")
 
+
+@Client.on_message(filters.command("stats") & filters.user(ADMINS))
+async def get_stats(bot, message):
+    try:
+        total_users = await db.total_users_count()
+        await message.reply_text(
+            text=f"📊 **Bot Statistics**\n\n👥 **Total Users:** {total_users}\n\n🕒 **Last Updated:** {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
+            parse_mode="markdown"
+        )
+    except Exception as e:
+        await message.reply_text(f"An error occurred while fetching stats: {e}")
+
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 # Ask Doubt on telegram @KingVJ01
