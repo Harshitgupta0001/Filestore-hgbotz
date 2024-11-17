@@ -85,10 +85,7 @@ async def start(client, message):
             ]]
         if CLONE_MODE == True:
             buttons.append([InlineKeyboardButton('ᴄʀᴇᴀᴛᴇ ᴏᴡɴ ᴄʟᴏɴᴇ ʙᴏᴛ', callback_data='clone')])
-        reply_markup = InlineKeyboardMarkup(buttons)
-        z=await message.reply_sticker("CAACAgQAAxkBAAIjiWauJFj9Dg6KAZCB8o28_Bapa4k_AAJrEwACJsW5UUJCTxkrCrqZHgQ") 
-        await asyncio.sleep(3)
-        await z.delete()
+        reply_markup = InlineKeyboardMarkup(buttons) 
         me2 = (await client.get_me()).mention
         await message.reply_text(text="hii")
         return
@@ -201,7 +198,7 @@ async def start(client, message):
                     chat_id=message.from_user.id,
                     file_id=msg.get("file_id"),
                     caption=f_caption,
-                    protect_content=msg.get('protect', True),
+                    protect_content=True,
                     reply_markup=reply_markup
                 )
                 filesarr.append(msg)
@@ -213,7 +210,7 @@ async def start(client, message):
                     chat_id=message.from_user.id,
                     file_id=msg.get("file_id"),
                     caption=f_caption,
-                    protect_content=msg.get('protect', True),
+                    protect_content=True,
                     reply_markup=InlineKeyboardMarkup(button)
                 )
                 filesarr.append(msg)
@@ -274,6 +271,7 @@ async def start(client, message):
                 g = await msg.reply_text(
                     text=f"",
                     quote=True,
+                    protect_content=True, 
                     disable_web_page_preview=True,
                     reply_markup=InlineKeyboardMarkup(
                         [
@@ -329,12 +327,13 @@ async def start(client, message):
         chat_id=message.from_user.id,
         file_id=file_id,
         caption=f_caption,
-        protect_content=True if pre == 'filep' else False,
+        protect_content=True,
     )
     if STREAM_MODE == True:
         g = await x.reply_text(
             text=f"",
             quote=True,
+            protect_content=True, 
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
@@ -528,6 +527,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await log_msg.reply_text(
                 text=f"•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ ɪᴅ #{user_id} \n•• ᴜꜱᴇʀɴᴀᴍᴇ : {username} \n\n•• ᖴᎥᒪᗴ Nᗩᗰᗴ : {fileName}",
                 quote=True,
+                protect_content=True, 
                 disable_web_page_preview=True,
                 reply_markup=reply_markup
             )
@@ -541,6 +541,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.message.reply_text(
                 text="•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ",
                 quote=True,
+                protect_content=True, 
                 disable_web_page_preview=True,
                 reply_markup=reply_markup
             )
