@@ -98,8 +98,7 @@ async def get_stats(bot, message):
     try:
         total_users = await db.total_users_count()
         await message.reply_text(
-            text=f"📊 **Bot Statistics**\n\n👥 **Total Users:** {total_users}\n\n🕒 **Last Updated:** {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
-            parse_mode="markdown"
+            text=f"📊 **Bot Statistics**\n\n👥 **Total Users:** {total_users}\n\n🕒 **Last Updated:** {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
         )
     except Exception as e:
         await message.reply_text(f"An error occurred while fetching stats: {e}")
