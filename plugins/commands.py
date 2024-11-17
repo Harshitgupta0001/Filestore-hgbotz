@@ -81,13 +81,14 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         buttons = [[
-                InlineKeyboardButton('✇ Uᴘᴅᴀᴛᴇs ✇', url="https://t.me/HGBOTZ")
+                InlineKeyboardButton('Click Here To Buy Membership 🥵', url="https://t.me/premiumbuy29bot")
             ]]
         if CLONE_MODE == True:
             buttons.append([InlineKeyboardButton('ᴄʀᴇᴀᴛᴇ ᴏᴡɴ ᴄʟᴏɴᴇ ʙᴏᴛ', callback_data='clone')])
         reply_markup = InlineKeyboardMarkup(buttons) 
         me2 = (await client.get_me()).mention
-        await message.reply_text(text="hii")
+        await message.reply_text(script.START_TXT,
+                                reply_markup=reply_markup)
         return
 
 # Don't Remove Credit Tg - @VJ_Botz
