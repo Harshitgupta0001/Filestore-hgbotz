@@ -19,7 +19,7 @@ Special Offer - 999(All Group)</blockquote></b>
 
     PREMIUM_TXT = """<b><blockquote>𝗔𝗴𝗿 𝗮𝗮𝗽 𝗵𝗮𝗺𝗿𝗲 𝗽𝗿𝗲𝗺𝗶𝘂𝗺 𝗴𝗿𝗼𝘂𝗽 𝗺𝗲 𝗮𝗱𝗱 𝗵𝗼𝗻𝗲 𝗰𝗵𝗮𝗵𝗮𝘁𝗲 𝗵𝗮𝗶 𝗷𝗵𝗮  𝗱𝗮𝗶𝗹𝘆 𝟭𝗸 𝘃𝗶𝗱𝗲𝗼 𝘂𝗽𝗹𝗼𝗮𝗱 𝗵𝗼𝘁𝗲 𝗵𝗮𝗶 𝘁𝗼 𝗮𝗮𝗽 𝗯𝗵o𝘂𝘁 kam 𝗽𝗿𝗶𝗰𝗲 𝗺𝗲 𝗷𝗼𝗶𝗻 𝗵𝗼 𝘀𝗸𝘁𝗲 𝗵𝗮𝗶
 
-𝗕𝘂𝘆 𝗛𝗲𝗿𝗲 - @premiumbuy29bot</blockquote></b>
+𝗕𝘂𝘆 𝗛𝗲𝗿𝗲 - @premiumbuy29bot</blockquote></b>"""
 
     
     CAPTION = """<b>{file_name}</b>
