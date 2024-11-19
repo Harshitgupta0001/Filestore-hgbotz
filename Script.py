@@ -4,9 +4,8 @@
 
 
 class script(object):
-    START_TXT = """<b>Hᴇʟʟᴏ {} 💀
-    Buy Premium Membership 🌚</b>
-
+    START_TXT = """<b>Hᴇʟʟᴏ 💀
+Buy Premium Membership 🌚</b>
 <b><blockquote>Single Group - 199₹
 Any 2 Group - 349₹
 Any 3 Group - 499₹
