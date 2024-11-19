@@ -4,7 +4,7 @@
 
 
 class script(object):
-    START_TXT = """<b>Hᴇʟʟᴏ 💀
+    START_TXT = """<b>Hᴇʟʟᴏ {} 💀
     Buy Premium Membership 🌚</b>
 
 <b><blockquote>Single Group - 199₹
