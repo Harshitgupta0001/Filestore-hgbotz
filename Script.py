@@ -4,20 +4,21 @@
 
 
 class script(object):
-    START_TXT = """<b>Hᴇʟʟᴏ 
-    Buy Premium Membership 🌚
+    START_TXT = """<b>Hᴇʟʟᴏ 💀
+    Buy Premium Membership 🌚</b>
 
-Single Group - 199₹
+<b><blockquote>Single Group - 199₹
 Any 2 Group - 349₹
 Any 3 Group - 499₹
-Special Offer - 999(All Group)<b>"""
+Special Offer - 999(All Group)</blockquote></b>
+<b><blockquote>premium 💀 ➥ <a href = 'http://t.me/premiumbuy29bot' >click to get 🌚</a></blockquote></b>"""
 
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 # Ask Doubt on telegram @KingVJ01
 
     
-    CAPTION = """<b><pre>𝚃𝚒𝚃𝚕𝚎✨</pre> <b>{file_name}</b>
+    CAPTION = """<b>{file_name}</b>
 <blockquote>sɪᴢᴇ ⚙️: {file_size}</blockquote>
 """ 
 
