@@ -87,7 +87,9 @@ async def start(client, message):
             buttons.append([InlineKeyboardButton('ᴄʀᴇᴀᴛᴇ ᴏᴡɴ ᴄʟᴏɴᴇ ʙᴏᴛ', callback_data='clone')])
         reply_markup = InlineKeyboardMarkup(buttons) 
         me2 = (await client.get_me()).mention
-        await message.reply_text(script.START_TXT,
+        await message.reply_photo(photo='https://i.ibb.co/mTTg2qS/photo-2024-08-01-22-46-08-7438924214695886852.jpg',
+                                caption=script.START_TXT,
+                                has_spoiler = True, 
                                 reply_markup=reply_markup)
         return
 
