@@ -221,14 +221,14 @@ async def start(client, message):
             await asyncio.sleep(1) 
         await sts.delete()
         if AUTO_DELETE_MODE == True:
-            k = await client.send_message(chat_id = message.from_user.id, text=f"File/Video will be deleted in <b><u>{AUTO_DELETE} minutes</u><i></b>(Due to Copyright Issues)</i>.\n<b><i>Please forward this File/Video to your Saved Messages</b>")
+            k = await client.send_message(chat_id = message.from_user.id, text=script.PREMIUM_TXT)
             await asyncio.sleep(AUTO_DELETE_TIME)
             for x in filesarr:
                 try:
                     await x.delete()
                 except:
                     pass
-            await k.edit_text("<b>Your All Files/Videos is successfully deleted!!!</b>")
+            await k.edit_text("𝗔𝗴𝗿 𝗮𝗮𝗽 𝗵𝗮𝗺𝗿𝗲 𝗽𝗿𝗲𝗺𝗶𝘂𝗺 𝗴𝗿𝗼𝘂𝗽 𝗺𝗲 𝗮𝗱𝗱 𝗵𝗼𝗻𝗲 𝗰𝗵𝗮𝗵𝗮𝘁𝗲 𝗵𝗮𝗶 𝗷𝗵𝗮  𝗱𝗮𝗶𝗹𝘆 𝟭𝗸 𝘃𝗶𝗱𝗲𝗼 𝘂𝗽𝗹𝗼𝗮𝗱 𝗵𝗼𝘁𝗲 𝗵𝗮𝗶 𝘁𝗼 𝗮𝗮𝗽 𝗯𝗵o𝘂𝘁 kam 𝗽𝗿𝗶𝗰𝗲 𝗺𝗲 𝗷𝗼𝗶𝗻 𝗵𝗼 𝘀𝗸𝘁𝗲 𝗵𝗮𝗶 𝗕𝘂𝘆 𝗛𝗲𝗿𝗲 - @premiumbuy29bot")
         return
 
 # Don't Remove Credit Tg - @VJ_Botz
@@ -283,14 +283,14 @@ async def start(client, message):
                     )
                 )
             if AUTO_DELETE_MODE == True:
-                k = await client.send_message(chat_id = message.from_user.id, text=f"This File/Video will be deleted in <b><u>{AUTO_DELETE} minutes</u><i></b>(Due to Copyright Issues)</i>.\n\n<b><i>forward this File/Video to your Saved Messages</b>")
+                k = await client.send_message(chat_id = message.from_user.id, text=script.PREMIUM_TXT)
                 await asyncio.sleep(AUTO_DELETE_TIME)
                 try:
                     await msg.delete()
                 except:
                     pass
                 await g.delete()
-                await k.edit_text("<b>Your File/Video is successfully deleted!!!</b>")
+                await k.edit_text("𝗔𝗴𝗿 𝗮𝗮𝗽 𝗵𝗮𝗺𝗿𝗲 𝗽𝗿𝗲𝗺𝗶𝘂𝗺 𝗴𝗿𝗼𝘂𝗽 𝗺𝗲 𝗮𝗱𝗱 𝗵𝗼𝗻𝗲 𝗰𝗵𝗮𝗵𝗮𝘁𝗲 𝗵𝗮𝗶 𝗷𝗵𝗮  𝗱𝗮𝗶𝗹𝘆 𝟭𝗸 𝘃𝗶𝗱𝗲𝗼 𝘂𝗽𝗹𝗼𝗮𝗱 𝗵𝗼𝘁𝗲 𝗵𝗮𝗶 𝘁𝗼 𝗮𝗮𝗽 𝗯𝗵o𝘂𝘁 kam 𝗽𝗿𝗶𝗰𝗲 𝗺𝗲 𝗷𝗼𝗶𝗻 𝗵𝗼 𝘀𝗸𝘁𝗲 𝗵𝗮𝗶 𝗕𝘂𝘆 𝗛𝗲𝗿𝗲 - @premiumbuy29bot")
             return
         except:
             pass
@@ -345,13 +345,13 @@ async def start(client, message):
             )
         )
     if AUTO_DELETE_MODE == True:
-        k = await client.send_message(chat_id = message.from_user.id, text=f"<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie File/Video will be deleted in <b><u>{AUTO_DELETE} minutes</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this File/Video to your Saved Messages and Start Download there</b>")
+        k = await client.send_message(chat_id = message.from_user.id, text=script.PREMIUM_TXT)
         await asyncio.sleep(AUTO_DELETE_TIME)
         try:
             await x.delete()
         except:
             pass
-        await k.edit_text("<b>Your All Files/Videos is successfully deleted!!!</b>")       
+        await k.edit_text("𝗔𝗴𝗿 𝗮𝗮𝗽 𝗵𝗮𝗺𝗿𝗲 𝗽𝗿𝗲𝗺𝗶𝘂𝗺 𝗴𝗿𝗼𝘂𝗽 𝗺𝗲 𝗮𝗱𝗱 𝗵𝗼𝗻𝗲 𝗰𝗵𝗮𝗵𝗮𝘁𝗲 𝗵𝗮𝗶 𝗷𝗵𝗮  𝗱𝗮𝗶𝗹𝘆 𝟭𝗸 𝘃𝗶𝗱𝗲𝗼 𝘂𝗽𝗹𝗼𝗮𝗱 𝗵𝗼𝘁𝗲 𝗵𝗮𝗶 𝘁𝗼 𝗮𝗮𝗽 𝗯𝗵o𝘂𝘁 kam 𝗽𝗿𝗶𝗰𝗲 𝗺𝗲 𝗷𝗼𝗶𝗻 𝗵𝗼 𝘀𝗸𝘁𝗲 𝗵𝗮𝗶 𝗕𝘂𝘆 𝗛𝗲𝗿𝗲 - @premiumbuy29bot")       
         
 
 # Don't Remove Credit Tg - @VJ_Botz
