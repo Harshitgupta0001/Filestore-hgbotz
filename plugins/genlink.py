@@ -44,6 +44,7 @@ async def incoming_gen_link(bot, message):
     user = await get_user(user_id)
     if WEBSITE_URL_MODE == True:
         share_link = f"{WEBSITE_URL}?Tech_VJ={outstr}"
+        await message.reply(f"<b><pre>⭕ ʜᴇʀᴇ ɪs ʏᴏᴜʀ ʟɪɴᴋ:</pre>\n\n<blockquote>🔗 ᴏʀɪɢɪɴᴀʟ ʟɪɴᴋ :- {share_link}</blockquote></b>")
     else:
         share_link = f"https://t.me/{username}?start={outstr}"
         await message.reply(f"<b><pre>⭕ ʜᴇʀᴇ ɪs ʏᴏᴜʀ ʟɪɴᴋ:</pre>\n\n<blockquote>🔗 ᴏʀɪɢɪɴᴀʟ ʟɪɴᴋ :- {share_link}</blockquote></b>")
@@ -74,6 +75,7 @@ async def gen_link_s(bot, message):
     user = await get_user(user_id)
     if WEBSITE_URL_MODE == True:
         share_link = f"{WEBSITE_URL}?Tech_VJ={outstr}"
+        await message.reply(f"<b><pre>⭕ ʜᴇʀᴇ ɪs ʏᴏᴜʀ ʟɪɴᴋ:</pre>\n\n<blockquote>🔗 ᴏʀɪɢɪɴᴀʟ ʟɪɴᴋ :- {share_link}</blockquote></b>")
     else:
         share_link = f"https://t.me/{username}?start={outstr}"
         await message.reply(f"<b><pre>⭕ ʜᴇʀᴇ ɪs ʏᴏᴜʀ ʟɪɴᴋ:</pre>\n\n<blockquote>🔗 ᴏʀɪɢɪɴᴀʟ ʟɪɴᴋ :- {share_link}</blockquote></b>")
@@ -187,6 +189,7 @@ async def gen_link_batch(bot, message):
     user = await get_user(user_id)
     if WEBSITE_URL_MODE == True:
         share_link = f"{WEBSITE_URL}?Tech_VJ=BATCH-{file_id}"
+        await sts.edit(f"<b><pre>⭕ ʜᴇʀᴇ ɪs ʏᴏᴜʀ ʟɪɴᴋ:</pre>\nContains `{og_msg}` files.\n\n<blockquote>🔗 ᴏʀɪɢɪɴᴀʟ ʟɪɴᴋ :- {share_link}</blockquote></b>")
     else:
         share_link = f"https://t.me/{username}?start=BATCH-{file_id}"
         await sts.edit(f"<b><pre>⭕ ʜᴇʀᴇ ɪs ʏᴏᴜʀ ʟɪɴᴋ:</pre>\nContains `{og_msg}` files.\n\n<blockquote>🔗 ᴏʀɪɢɪɴᴀʟ ʟɪɴᴋ :- {share_link}</blockquote></b>")
