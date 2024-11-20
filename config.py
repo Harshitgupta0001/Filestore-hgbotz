@@ -27,7 +27,7 @@ BOT_TOKEN = environ.get("BOT_TOKEN","7620547057:AAFS2zpmc7TlegRMGxmX9sn7i9AqqSuI
 
 PICS = (environ.get('PICS', '')).split() # Bot Start Picture
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '6359874284 6615241830').split()]
-BOT_USERNAME = environ.get("BOT_USERNAME", "premiummembership11bot") # without @
+BOT_USERNAME = environ.get("BOT_USERNAME", "Harsh_chat_bot") # without @
 PORT = environ.get("PORT", "8080")
 
 # Clone Info :-
