@@ -12,7 +12,7 @@ def is_enabled(value, default):
     else:
         return default
 
-AUTH_CHANNEL = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('AUTH_CHANNEL', '-1002283170516').split()] 
+AUTH_CHANNEL = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('AUTH_CHANNEL', '').split()] #-1002283170516
 
 
 UPDATE = environ.get("SUPPORT", "")
