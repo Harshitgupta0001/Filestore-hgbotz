@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting To Your Link</title>
+    <script type="text/javascript">
+      
+      
+        document.addEventListener("DOMContentLoaded", function() {
+            // Check if the URL contains the 'HGBOTZ' parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const linkParam = urlParams.get('HGBOTZ');
+            
+            // If the HGBOTZ parameter exists, redirect to Telegram
+            if (linkParam) {
+                const telegramUrl = "https://telegram.me/BOT_USERNAME?start=" + linkParam;
+                window.location.href = telegramUrl; // Redirect to the constructed Telegram URL
+            }
+        });
+      
+    </script>
+</head>
+<body>
+    <h1>Redirecting To Your Link</h1>
+    <p>Join Below Telegram Channel</p>
+    <a href="https://t.me/HGBOTZ">Join  Here</a>
+</body>
+</html>
