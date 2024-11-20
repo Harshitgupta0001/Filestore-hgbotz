@@ -23,7 +23,7 @@ YT = environ.get("YT", "")
 # Bot Information
 API_ID = int(environ.get("API_ID", "28342004"))
 API_HASH = environ.get("API_HASH", "b5a46bd0f2bfb81a06cf5995ec7f0da8")
-BOT_TOKEN = environ.get("BOT_TOKEN", "8004353968:AAFQUZ5-3fTpCaaFrn_jqK6XjVH-0mPPqGs")
+BOT_TOKEN = environ.get("BOT_TOKEN","7004225713:AAHh272R7avj80Dre5r8lmir4puFkSjDNbo")
 
 PICS = (environ.get('PICS', '')).split() # Bot Start Picture
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '6359874284 6615241830').split()]
@@ -38,7 +38,7 @@ CLONE_DB_URI = environ.get("CLONE_DB_URI", "")
 CDB_NAME = environ.get("CDB_NAME", "HGBOTZ")
 
 # Database Information
-DB_URI = environ.get("DB_URI", "mongodb+srv://harsh:gunnu@cluster0.0uqkd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+DB_URI = environ.get("DB_URI", "mongodb+srv://Yash_607:Yash_607@cluster0.r3s9sbo.mongodb.net/?retryWrites=true&w=majority")
 DB_NAME = environ.get("DB_NAME", "HGBOTZPAID")
 
 # Auto Delete Information
@@ -67,10 +67,10 @@ SHORTLINK_API = environ.get("SHORTLINK_API", "") # shortlink api
 VERIFY_TUTORIAL = environ.get("VERIFY_TUTORIAL", "https://t.me/ultroid_official/18") # how to open link 
 
 # Website Info:
-WEBSITE_URL_MODE = bool(environ.get('WEBSITE_URL_MODE', False)) # Set True or False
+WEBSITE_URL_MODE = bool(environ.get('WEBSITE_URL_MODE', True)) # Set True or False
 
 # If Website Url Mode Is True Then Fill All Required Variable, If False Then Don't Fill.
-WEBSITE_URL = environ.get("WEBSITE_URL", "") # For More Information Check Video On Yt - @PhdLust
+WEBSITE_URL = environ.get("WEBSITE_URL", "https://hgbotz.blogspot.com/2024/11/filestore.html") # For More Information Check Video On Yt - @PhdLust
 
 # File Stream Config
 STREAM_MODE = bool(environ.get('STREAM_MODE', False)) # Set True or False
