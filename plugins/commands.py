@@ -597,7 +597,7 @@ async def unauthorize_user(client, message):
     except ValueError:
         await message.reply_text("❌ Invalid user ID.")
 
-@Client.on_message(filters.command("all_auth") & filters.user(ADMIN_ID))
+@Client.on_message(filters.command("all_auth") & filters.user(ADMINS))
 async def all_auth_members(client, message):
     try:
         # Fetch all authorized users
