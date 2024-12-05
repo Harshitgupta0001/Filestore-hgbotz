@@ -197,6 +197,9 @@ async def start(client, message):
                         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚀 Fast Download 🚀", url=download),  # we download Link
                                                             InlineKeyboardButton('🖥️ Watch online 🖥️', url=stream)]])  # web stream Link
                     )
+                if not await db.is_user_authorized(message.from_user.id):
+                    await message.reply_text("❌ You are not authorized to use this bot. Please contact the admin.")
+                    return
                 if STREAM_MODE == True:
                     button = [[
                         InlineKeyboardButton("🚀 Fast Download 🚀", url=download),  # we download Link
@@ -250,6 +253,11 @@ async def start(client, message):
     files_ = await get_file_details(file_id)           
     if not files_:
         pre, file_id = ((base64.urlsafe_b64decode(data + "=" * (-len(data) % 4))).decode("ascii")).split("_", 1)
+        if not await db.is_user_authorized(message.from_user.id):
+        await message.reply_text(
+            "❌ You are not authorized to use this bot. Please contact the admin."
+        )
+        return
         if not await check_verification(client, message.from_user.id) and VERIFY_MODE == True:
             btn = [[
                 InlineKeyboardButton("Verify", url=await get_token(client, message.from_user.id, f"https://telegram.me/{username}?start="))
@@ -333,6 +341,11 @@ async def start(client, message):
             text="<b><blockquote>buddy You are not verified !\nKindly verify to continue !</blockquote></b>",
             protect_content=True,
             reply_markup=InlineKeyboardMarkup(btn)
+        )
+        return
+    if not await db.is_user_authorized(message.from_user.id):
+        await message.reply_text(
+            "❌ You are not authorized to use this bot. Please contact the admin."
         )
         return
     x = await client.send_cached_media(
@@ -559,6 +572,36 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer(f"☣something went wrong\n\n{e}", show_alert=True)
             return
 
+
+@Client.on_message(filters.command("auth") & filters.user(ADMIN_ID))
+async def authorize_user(client, message):
+    try:
+        user_id = int(message.command[1])
+        if not await db.is_user_exist(user_id):
+            await message.reply_text("User does not exist in the database.")
+            return
+
+        await db.authorize_user(user_id)
+        await message.reply_text(f"✅ User with ID {user_id} has been authorized.")
+    except IndexError:
+        await message.reply_text("❌ Please provide a user ID.")
+    except ValueError:
+        await message.reply_text("❌ Invalid user ID.")
+
+@Client.on_message(filters.command("unauth") & filters.user(ADMIN_ID))
+async def unauthorize_user(client, message):
+    try:
+        user_id = int(message.command[1])
+        if not await db.is_user_exist(user_id):
+            await message.reply_text("User does not exist in the database.")
+            return
+
+        await db.unauthorize_user(user_id)
+        await message.reply_text(f"✅ User with ID {user_id} has been unauthorized.")
+    except IndexError:
+        await message.reply_text("❌ Please provide a user ID.")
+    except ValueError:
+        await message.reply_text("❌ Invalid user ID.")
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 # Ask Doubt on telegram @KingVJ01
