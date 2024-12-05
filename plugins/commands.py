@@ -573,7 +573,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             return
 
 
-@Client.on_message(filters.command("auth") & filters.user(ADMIN_ID))
+@Client.on_message(filters.command("auth") & filters.user(ADMINS))
 async def authorize_user(client, message):
     try:
         user_id = int(message.command[1])
@@ -588,7 +588,7 @@ async def authorize_user(client, message):
     except ValueError:
         await message.reply_text("❌ Invalid user ID.")
 
-@Client.on_message(filters.command("unauth") & filters.user(ADMIN_ID))
+@Client.on_message(filters.command("unauth") & filters.user(ADMINS))
 async def unauthorize_user(client, message):
     try:
         user_id = int(message.command[1])
