@@ -189,7 +189,7 @@ async def start(client, message):
                                                             InlineKeyboardButton('🖥️ Watch online 🖥️', url=stream)]])  # web stream Link
                     )
                 if not await db.is_user_authorized(message.from_user.id):
-                       await message.reply_text("❌ You are not authorized to use this bot. Please contact the admin.)
+                       await message.reply_text("❌ You are not authorized to use this bot. Please contact the admin.")
                        return
                 if STREAM_MODE == True:
                     button = [[
