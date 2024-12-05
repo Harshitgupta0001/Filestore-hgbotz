@@ -12,7 +12,7 @@ def is_enabled(value, default):
     else:
         return default
 
-AUTH_CHANNEL = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('AUTH_CHANNEL', '-1002237286662').split()] 
+AUTH_CHANNEL = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('AUTH_CHANNEL', '-1002155023199').split()] 
 
 
 UPDATE = environ.get("SUPPORT", "")
@@ -23,11 +23,11 @@ YT = environ.get("YT", "")
 # Bot Information
 API_ID = int(environ.get("API_ID", "25492855"))
 API_HASH = environ.get("API_HASH", "61876db014de51a4ace6b169608be4f1")
-BOT_TOKEN = environ.get("BOT_TOKEN", "nUbAA-nNBQ")
+BOT_TOKEN = environ.get("BOT_TOKEN", "7986198859:AAG8NFqQ9il6VYslQZeF5Gm_LXgGKTAtiaQ")
 
 PICS = (environ.get('PICS', 'https://graph.org/file/34384a407532bf5738721.jpg')).split() # Bot Start Picture
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '6359874284').split()]
-BOT_USERNAME = environ.get("BOT_USERNAME", "FileShare_Hgbot") # without @
+BOT_USERNAME = environ.get("BOT_USERNAME", "studymaterial11bot") # without @
 PORT = environ.get("PORT", "8080")
 
 # Clone Info :-
@@ -38,8 +38,8 @@ CLONE_DB_URI = environ.get("CLONE_DB_URI", "")
 CDB_NAME = environ.get("CDB_NAME", "HGBOTZ")
 
 # Database Information
-DB_URI = environ.get("DB_URI", "mongodbue&wCluster0")
-DB_NAME = environ.get("DB_NAME", "HGBOTZ")
+DB_URI = environ.get("DB_URI", "mongodb+srv://Yash_607:Yash_607@cluster0.r3s9sbo.mongodb.net/?retryWrites=true&w=majority")
+DB_NAME = environ.get("DB_NAME", "HGBOTZjdjdj")
 
 # Auto Delete Information
 AUTO_DELETE_MODE = bool(environ.get('AUTO_DELETE_MODE', True)) # Set True or False
