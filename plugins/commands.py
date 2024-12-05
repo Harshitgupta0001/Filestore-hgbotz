@@ -254,7 +254,7 @@ async def start(client, message):
     if not files_:
         pre, file_id = ((base64.urlsafe_b64decode(data + "=" * (-len(data) % 4))).decode("ascii")).split("_", 1)
         if not await db.is_user_authorized(message.from_user.id):
-        await message.reply_text(
+               await message.reply_text(
             "❌ You are not authorized to use this bot. Please contact the admin."
         )
         return
@@ -344,7 +344,7 @@ async def start(client, message):
         )
         return
     if not await db.is_user_authorized(message.from_user.id):
-        await message.reply_text(
+           await message.reply_text(
             "❌ You are not authorized to use this bot. Please contact the admin."
         )
         return
