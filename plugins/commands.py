@@ -22,7 +22,9 @@ from TechVJ.utils.file_properties import get_name, get_hash, get_media_file_size
 logger = logging.getLogger(__name__)
 
 BATCH_FILES = {}
-
+buttons = [[
+                InlineKeyboardButton('Click Here To Buy Membership 🥵', url="https://t.me/premiumbuy29bot")
+            ]]
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 # Ask Doubt on telegram @KingVJ01
@@ -111,8 +113,9 @@ async def start(client, message):
             )
         if not await db.is_user_authorized(message.from_user.id):
                await message.reply_text(text="**U Are Not My Premium Member Buddy\n\n**Please Buy Membership 👇**", 
-                                       reply_markup = InlineKeyboardMarkup[[InlineKeyboardButton('Click Here To Buy Membership 🥵', url="https://t.me/premiumbuy29bot")]])
-        return
+                                       reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Click Here To Buy Membership 🥵", url="https://t.me/premiumbuy29bot")]])
+                                                )
+               return
         is_valid = await check_token(client, userid, token)
         if is_valid == True:
             await message.reply_text(
@@ -191,7 +194,8 @@ async def start(client, message):
                     )
                 if not await db.is_user_authorized(message.from_user.id):
                        await message.reply_text(text="**U Are Not My Premium Member Buddy\n\n**Please Buy Membership 👇**", 
-                                       reply_markup = InlineKeyboardMarkup[[InlineKeyboardButton('Click Here To Buy Membership 🥵', url="https://t.me/premiumbuy29bot")]])
+                                       reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Click Here To Buy Membership 🥵", url="https://t.me/premiumbuy29bot")]])
+                                                )
                        return
                 if STREAM_MODE == True:
                     button = [[
@@ -246,7 +250,8 @@ async def start(client, message):
     files_ = await get_file_details(file_id)
     if not await db.is_user_authorized(message.from_user.id):
            await message.reply_text(text="**U Are Not My Premium Member Buddy\n\n**Please Buy Membership 👇**", 
-                                       reply_markup = InlineKeyboardMarkup[[InlineKeyboardButton('Click Here To Buy Membership 🥵', url="https://t.me/premiumbuy29bot")]])
+                                       reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Click Here To Buy Membership 🥵", url="https://t.me/premiumbuy29bot")]])
+                                                )
            return
     if not files_:
         pre, file_id = ((base64.urlsafe_b64decode(data + "=" * (-len(data) % 4))).decode("ascii")).split("_", 1)
@@ -338,7 +343,8 @@ async def start(client, message):
         return
     if not await db.is_user_authorized(message.from_user.id):
            await message.reply_text(text="**U Are Not My Premium Member Buddy\n\n**Please Buy Membership 👇**", 
-                                       reply_markup = InlineKeyboardMarkup[[InlineKeyboardButton('Click Here To Buy Membership 🥵', url="https://t.me/premiumbuy29bot")]])
+                                       reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Click Here To Buy Membership 🥵", url="https://t.me/premiumbuy29bot")]])
+                                                )
            return
     x = await client.send_cached_media(
         chat_id=message.from_user.id,
