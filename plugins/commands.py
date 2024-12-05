@@ -110,7 +110,8 @@ async def start(client, message):
                 protect_content=True
             )
         if not await db.is_user_authorized(message.from_user.id):
-               await message.reply_text("❌ You are not authorized to use this bot. Please contact the admin.")
+               await message.reply_text(text="**U Are Not My Premium Member Buddy\n\n**Please Buy Membership 👇**", 
+                                       reply_markup = InlineKeyboardMarkup[[InlineKeyboardButton('Click Here To Buy Membership 🥵', url="https://t.me/premiumbuy29bot")]])
         return
         is_valid = await check_token(client, userid, token)
         if is_valid == True:
@@ -189,7 +190,8 @@ async def start(client, message):
                                                             InlineKeyboardButton('🖥️ Watch online 🖥️', url=stream)]])  # web stream Link
                     )
                 if not await db.is_user_authorized(message.from_user.id):
-                       await message.reply_text("❌ You are not authorized to use this bot. Please contact the admin.")
+                       await message.reply_text(text="**U Are Not My Premium Member Buddy\n\n**Please Buy Membership 👇**", 
+                                       reply_markup = InlineKeyboardMarkup[[InlineKeyboardButton('Click Here To Buy Membership 🥵', url="https://t.me/premiumbuy29bot")]])
                        return
                 if STREAM_MODE == True:
                     button = [[
@@ -243,7 +245,8 @@ async def start(client, message):
 
     files_ = await get_file_details(file_id)
     if not await db.is_user_authorized(message.from_user.id):
-           await message.reply_text("❌ You are not authorized to use this bot. Please contact the admin.")
+           await message.reply_text(text="**U Are Not My Premium Member Buddy\n\n**Please Buy Membership 👇**", 
+                                       reply_markup = InlineKeyboardMarkup[[InlineKeyboardButton('Click Here To Buy Membership 🥵', url="https://t.me/premiumbuy29bot")]])
            return
     if not files_:
         pre, file_id = ((base64.urlsafe_b64decode(data + "=" * (-len(data) % 4))).decode("ascii")).split("_", 1)
@@ -334,7 +337,8 @@ async def start(client, message):
         )
         return
     if not await db.is_user_authorized(message.from_user.id):
-           await message.reply_text("❌ You are not authorized to use this bot. Please contact the admin.")
+           await message.reply_text(text="**U Are Not My Premium Member Buddy\n\n**Please Buy Membership 👇**", 
+                                       reply_markup = InlineKeyboardMarkup[[InlineKeyboardButton('Click Here To Buy Membership 🥵', url="https://t.me/premiumbuy29bot")]])
            return
     x = await client.send_cached_media(
         chat_id=message.from_user.id,
