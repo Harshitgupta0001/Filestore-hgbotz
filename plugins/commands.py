@@ -597,3 +597,24 @@ async def unauthorize_user(client, message):
     except ValueError:
         await message.reply_text("❌ Invalid user ID.")
 
+@Client.on_message(filters.command("all_auth") & filters.user(ADMIN_ID))
+async def all_auth_members(client, message):
+    try:
+        # Fetch all authorized users
+        authorized_users_cursor = db.col.find({'is_authorized': True})
+        authorized_users = await authorized_users_cursor.to_list(length=100)  # Fetch up to 100 users
+
+        # Check if any authorized users exist
+        if not authorized_users:
+            await message.reply_text("No authorized users found.")
+            return
+
+        # Format the list of authorized users
+        message_text = "👥 **Authorized Members List:**\n\n"
+        for user in authorized_users:
+            message_text += f"- **ID:** `{user['id']}` | **Name:** {user['name']}\n"
+
+        # Send the list to the admin
+        await message.reply_text(message_text)
+    except Exception as e:
+        await message.reply_text(f"An error occurred while fetching the authorized members list: {e}")
