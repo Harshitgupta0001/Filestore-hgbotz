@@ -347,7 +347,7 @@ async def start(client, message):
            await message.reply_text(
             "❌ You are not authorized to use this bot. Please contact the admin."
         )
-        return
+           return
     x = await client.send_cached_media(
         chat_id=message.from_user.id,
         file_id=file_id,
