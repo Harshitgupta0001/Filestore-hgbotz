@@ -1,6 +1,4 @@
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
+
 
 import os
 import logging
@@ -111,6 +109,9 @@ async def start(client, message):
                 text="<b>Invalid link or Expired link !</b>",
                 protect_content=True
             )
+        if not await db.is_user_authorized(message.from_user.id):
+               await message.reply_text("❌ You are not authorized to use this bot. Please contact the admin.")
+        return
         is_valid = await check_token(client, userid, token)
         if is_valid == True:
             await message.reply_text(
@@ -187,6 +188,9 @@ async def start(client, message):
                         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚀 Fast Download 🚀", url=download),  # we download Link
                                                             InlineKeyboardButton('🖥️ Watch online 🖥️', url=stream)]])  # web stream Link
                     )
+                if not await db.is_user_authorized(message.from_user.id):
+                       await message.reply_text("❌ You are not authorized to use this bot. Please contact the admin.)
+                       return
                 if STREAM_MODE == True:
                     button = [[
                         InlineKeyboardButton("🚀 Fast Download 🚀", url=download),  # we download Link
