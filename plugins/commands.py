@@ -241,7 +241,10 @@ async def start(client, message):
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 # Ask Doubt on telegram @KingVJ01
 
-    files_ = await get_file_details(file_id)           
+    files_ = await get_file_details(file_id)
+    if not await db.is_user_authorized(message.from_user.id):
+           await message.reply_text("❌ You are not authorized to use this bot. Please contact the admin.")
+           return
     if not files_:
         pre, file_id = ((base64.urlsafe_b64decode(data + "=" * (-len(data) % 4))).decode("ascii")).split("_", 1)
         if not await check_verification(client, message.from_user.id) and VERIFY_MODE == True:
@@ -330,6 +333,9 @@ async def start(client, message):
             reply_markup=InlineKeyboardMarkup(btn)
         )
         return
+    if not await db.is_user_authorized(message.from_user.id):
+           await message.reply_text("❌ You are not authorized to use this bot. Please contact the admin.")
+           return
     x = await client.send_cached_media(
         chat_id=message.from_user.id,
         file_id=file_id,
