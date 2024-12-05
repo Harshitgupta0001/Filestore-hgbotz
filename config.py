@@ -12,7 +12,7 @@ def is_enabled(value, default):
     else:
         return default
 
-AUTH_CHANNEL = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('AUTH_CHANNEL', '').split()] #-1002283170516
+AUTH_CHANNEL = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('AUTH_CHANNEL', '-1002283170516').split()] #-1002283170516
 
 
 UPDATE = environ.get("SUPPORT", "")
@@ -27,7 +27,7 @@ BOT_TOKEN = environ.get("BOT_TOKEN","7986198859:AAG8NFqQ9il6VYslQZeF5Gm_LXgGKTAt
 
 PICS = (environ.get('PICS', '')).split() # Bot Start Picture
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '6359874284 6615241830').split()]
-BOT_USERNAME = environ.get("BOT_USERNAME", "Harsh_chat_bot") # without @
+BOT_USERNAME = environ.get("BOT_USERNAME", "studymaterial11bot") # without @
 PORT = environ.get("PORT", "8080")
 
 # Clone Info :-
@@ -67,7 +67,7 @@ SHORTLINK_API = environ.get("SHORTLINK_API", "") # shortlink api
 VERIFY_TUTORIAL = environ.get("VERIFY_TUTORIAL", "https://t.me/ultroid_official/18") # how to open link 
 
 # Website Info:
-WEBSITE_URL_MODE = bool(environ.get('WEBSITE_URL_MODE', True)) # Set True or False
+WEBSITE_URL_MODE = bool(environ.get('WEBSITE_URL_MODE', False)) # Set True or False
 
 # If Website Url Mode Is True Then Fill All Required Variable, If False Then Don't Fill.
 WEBSITE_URL = environ.get("WEBSITE_URL", "https://hgbotz.blogspot.com/2024/11/filestore.html") # For More Information Check Video On Yt - @PhdLust
