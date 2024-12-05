@@ -23,7 +23,7 @@ YT = environ.get("YT", "")
 # Bot Information
 API_ID = int(environ.get("API_ID", "28342004"))
 API_HASH = environ.get("API_HASH", "b5a46bd0f2bfb81a06cf5995ec7f0da8")
-BOT_TOKEN = environ.get("BOT_TOKEN","7004225713:AAHh272R7avj80Dre5r8lmir4puFkSjDNbo")
+BOT_TOKEN = environ.get("BOT_TOKEN","7986198859:AAG8NFqQ9il6VYslQZeF5Gm_LXgGKTAtiaQ")
 
 PICS = (environ.get('PICS', '')).split() # Bot Start Picture
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '6359874284 6615241830').split()]
@@ -39,7 +39,7 @@ CDB_NAME = environ.get("CDB_NAME", "HGBOTZ")
 
 # Database Information
 DB_URI = environ.get("DB_URI", "mongodb+srv://Yash_607:Yash_607@cluster0.r3s9sbo.mongodb.net/?retryWrites=true&w=majority")
-DB_NAME = environ.get("DB_NAME", "HGBOTZPAID")
+DB_NAME = environ.get("DB_NAME", "HGBOTZPAIDr")
 
 # Auto Delete Information
 AUTO_DELETE_MODE = bool(environ.get('AUTO_DELETE_MODE', True)) # Set True or False
