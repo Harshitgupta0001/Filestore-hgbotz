@@ -553,6 +553,33 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer(f"☣something went wrong\n\n{e}", show_alert=True)
             return
 
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
+@Client.on_message(filters.command("auth") & filters.user(ADMINS))
+async def authorize_user(client, message):
+    try:
+        user_id = int(message.command[1])
+        if not await db.is_user_exist(user_id):
+            await message.reply_text("User does not exist in the database.")
+            return
+
+        await db.authorize_user(user_id)
+        await message.reply_text(f"✅ User with ID {user_id} has been authorized.")
+    except IndexError:
+        await message.reply_text("❌ Please provide a user ID.")
+    except ValueError:
+        await message.reply_text("❌ Invalid user ID.")
+
+@Client.on_message(filters.command("unauth") & filters.user(ADMINS))
+async def unauthorize_user(client, message):
+    try:
+        user_id = int(message.command[1])
+        if not await db.is_user_exist(user_id):
+            await message.reply_text("User does not exist in the database.")
+            return
+
+        await db.unauthorize_user(user_id)
+        await message.reply_text(f"✅ User with ID {user_id} has been unauthorized.")
+    except IndexError:
+        await message.reply_text("❌ Please provide a user ID.")
+    except ValueError:
+        await message.reply_text("❌ Invalid user ID.")
+
