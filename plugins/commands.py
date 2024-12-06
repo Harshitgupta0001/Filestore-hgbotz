@@ -618,7 +618,9 @@ async def all_auth_members(client, message):
         # Format the list of authorized users
         message_text = "👥 **Authorized Members List:**\n\n"
         for user in authorized_users:
-            message_text += f"- **ID:** `{user['id']}` | **Name:** {user['name']}\n"
+            auth_time = user.get('auth_timestamp', None)
+            formatted_time = auth_time.strftime('%Y-%m-%d %H:%M:%S UTC') if auth_time else "Unknown"
+            message_text += f"- **ID:** `{user['id']}` | **Name:** {user['name']} | **Auth Time:** {formatted_time}\n"
 
         # Send the list to the admin
         await message.reply_text(message_text)
