@@ -1,6 +1,6 @@
 import motor.motor_asyncio, datetime
 from config import DB_NAME, DB_URI
-from datetime import datetime
+from datetime import datetime, timedelta
 
 DATABASE_NAME = DB_NAME
 DATABASE_URI = DB_URI
@@ -43,17 +43,15 @@ class Database:
         user = await self.col.find_one({'id': int(id)})
         return bool(user)
 
-    async def is_user_authorized(self, id):
-        user = await self.col.find_one({'id': int(id)})
-        return user.get("is_authorized", False) if user else False
-
-    async def authorize_user(self, id):
+    async def authorize_user(self, id, duration_days=7):
+        expiry_time = datetime.utcnow() + timedelta(days=duration_days)
         await self.col.update_one(
             {'id': int(id)},
             {
                 '$set': {
                     'is_authorized': True,
-                    'auth_timestamp': datetime.utcnow()  # Save authorization time
+                    'auth_timestamp': datetime.utcnow(),
+                    'auth_expiry': expiry_time  # Set authorization expiry
                 }
             }
         )
@@ -64,10 +62,22 @@ class Database:
             {
                 '$set': {
                     'is_authorized': False,
-                    'auth_timestamp': None  # Clear authorization time
+                    'auth_expiry': None,  # Clear expiry time
+                    'auth_timestamp': None
                 }
             }
         )
+
+    async def is_user_authorized(self, id):
+        user = await self.col.find_one({'id': int(id)})
+        if user and user.get("is_authorized", False):
+            auth_expiry = user.get("auth_expiry")
+            if auth_expiry and datetime.utcnow() > auth_expiry:
+                # Auto unauthorize if expired
+                await self.unauthorize_user(id)
+                return False
+            return True
+        return False
 
     async def total_users_count(self):
         count = await self.col.count_documents({})
