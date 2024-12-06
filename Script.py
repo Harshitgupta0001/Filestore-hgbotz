@@ -21,9 +21,7 @@ Special Offer - 999(All Group)</blockquote></b>
 𝗕𝘂𝘆 𝗛𝗲𝗿𝗲 - @premiumbuy29bot</blockquote></b>"""
 
     
-    CAPTION = """<b>{file_name}</b>
-<blockquote>sɪᴢᴇ ⚙️: {file_size}</blockquote>
-""" 
+    CAPTION = """ """ 
 
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
