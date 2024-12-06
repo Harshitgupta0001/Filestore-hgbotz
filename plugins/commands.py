@@ -577,16 +577,19 @@ async def cb_handler(client: Client, query: CallbackQuery):
 async def authorize_user(client, message):
     try:
         user_id = int(message.command[1])
+        duration_days = int(message.command[2]) if len(message.command) > 2 else 7  # Default to 7 days
         if not await db.is_user_exist(user_id):
             await message.reply_text("User does not exist in the database.")
             return
 
-        await db.authorize_user(user_id)
-        await message.reply_text(f"✅ User with ID {user_id} has been authorized.")
+        await db.authorize_user(user_id, duration_days=duration_days)
+        expiry_time = (datetime.utcnow() + timedelta(days=duration_days)).strftime('%Y-%m-%d %H:%M:%S UTC')
+        await message.reply_text(f"✅ User with ID {user_id} has been authorized until {expiry_time}.")
     except IndexError:
-        await message.reply_text("❌ Please provide a user ID.")
+        await message.reply_text("❌ Please provide a user ID and optional duration in days.")
     except ValueError:
-        await message.reply_text("❌ Invalid user ID.")
+        await message.reply_text("❌ Invalid user ID or duration.")
+
 
 @Client.on_message(filters.command("unauth") & filters.user(ADMINS))
 async def unauthorize_user(client, message):
@@ -619,8 +622,13 @@ async def all_auth_members(client, message):
         message_text = "👥 **Authorized Members List:**\n\n"
         for user in authorized_users:
             auth_time = user.get('auth_timestamp', None)
-            formatted_time = auth_time.strftime('%Y-%m-%d %H:%M:%S UTC') if auth_time else "Unknown"
-            message_text += f"<blockquote>- **ID 🪪:** `{user['id']}` | **Name 📛:** {user['name']} | **Join Time ⌚:** {formatted_time}</blockquote>\n"
+            expiry_time = user.get('auth_expiry', None)
+            formatted_auth_time = auth_time.strftime('%Y-%m-%d %H:%M:%S UTC') if auth_time else "Unknown"
+            formatted_expiry_time = expiry_time.strftime('%Y-%m-%d %H:%M:%S UTC') if expiry_time else "Unknown"
+            message_text += (
+                f"<blockquote>- **ID 🪪:** `{user['id']}` | **Name 📛:** {user['name']} | "
+                f"**Auth Time ⌚:** {formatted_auth_time} | **Expiry 🍢:** {formatted_expiry_time}</blockquote>\n"
+            )
 
         # Send the list to the admin
         await message.reply_text(message_text)
