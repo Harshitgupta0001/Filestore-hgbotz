@@ -1,5 +1,6 @@
-import motor.motor_asyncio
+import motor.motor_asyncio, datetime
 from config import DB_NAME, DB_URI
+from datetime import datetime
 
 DATABASE_NAME = DB_NAME
 DATABASE_URI = DB_URI
@@ -47,10 +48,26 @@ class Database:
         return user.get("is_authorized", False) if user else False
 
     async def authorize_user(self, id):
-        await self.col.update_one({'id': int(id)}, {'$set': {'is_authorized': True}})
+        await self.col.update_one(
+            {'id': int(id)},
+            {
+                '$set': {
+                    'is_authorized': True,
+                    'auth_timestamp': datetime.utcnow()  # Save authorization time
+                }
+            }
+        )
 
     async def unauthorize_user(self, id):
-        await self.col.update_one({'id': int(id)}, {'$set': {'is_authorized': False}})
+        await self.col.update_one(
+            {'id': int(id)},
+            {
+                '$set': {
+                    'is_authorized': False,
+                    'auth_timestamp': None  # Clear authorization time
+                }
+            }
+        )
 
     async def total_users_count(self):
         count = await self.col.count_documents({})
