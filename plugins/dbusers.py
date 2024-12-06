@@ -54,6 +54,10 @@ class Database:
             }
         )
 
+    async def is_user_authorized(self, id):
+        user = await self.col.find_one({'id': int(id)})
+        return user.get("is_authorized", False) if user else False
+
     async def unauthorize_user(self, id):
         await self.col.update_one(
             {'id': int(id)},
