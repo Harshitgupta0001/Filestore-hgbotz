@@ -632,11 +632,21 @@ async def all_auth_members(client, message):
 async def get_id(client, message):
     try:
         user_id = message.from_user.id
+        user_mention = message.from_user.mention  # Get user's mention
+        user_name = message.from_user.first_name  # Get user's name
         chat_id = message.chat.id
-        reply_text = f"<b>👤 Your User ID:</b> <code>{user_id}</code>\n"
+
+        # Build the reply message
+        reply_text = (
+            f"<b>👤 Name:</b> {user_name}\n"
+            f"<b>🙋 Mention:</b> {user_mention}\n"
+            f"<b>🆔 Your User ID:</b> <code>{user_id}</code>\n"
+        )
+
+        # Include chat ID if in a group or supergroup
         if message.chat.type in ["group", "supergroup"]:
             reply_text += f"<b>👥 Group/Chat ID:</b> <code>{chat_id}</code>"
-        
+
         await message.reply_text(
             text=reply_text) 
     except Exception as e:
