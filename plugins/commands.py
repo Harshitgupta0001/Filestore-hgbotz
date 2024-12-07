@@ -602,6 +602,18 @@ async def unauthorize_user(client, message):
         await message.reply_text("❌ Please provide a user ID.")
     except ValueError:
         await message.reply_text("❌ Invalid user ID.")
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
+
+
+@Client.on_message(filters.command("id") & filters.incoming)
+async def get_id(client, message):
+    try:
+        user_id = message.from_user.id
+        chat_id = message.chat.id
+        reply_text = f"<b>👤 Your User ID:</b> <code>{user_id}</code>\n"
+        if message.chat.type in ["group", "supergroup"]:
+            reply_text += f"<b>👥 Group/Chat ID:</b> <code>{chat_id}</code>"
+        
+        await message.reply_text(
+            text=reply_text) 
+    except Exception as e:
+        print(e)
