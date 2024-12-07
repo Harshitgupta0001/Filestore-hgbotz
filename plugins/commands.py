@@ -627,3 +627,17 @@ async def all_auth_members(client, message):
         await message.reply_text(message_text)
     except Exception as e:
         await message.reply_text(f"An error occurred while fetching the authorized members list: {e}")
+
+@Client.on_message(filters.command("id") & filters.incoming)
+async def get_id(client, message):
+    try:
+        user_id = message.from_user.id
+        chat_id = message.chat.id
+        reply_text = f"<b>👤 Your User ID:</b> <code>{user_id}</code>\n"
+        if message.chat.type in ["group", "supergroup"]:
+            reply_text += f"<b>👥 Group/Chat ID:</b> <code>{chat_id}</code>"
+        
+        await message.reply_text(
+            text=reply_text) 
+    except Exception as e:
+        print(e)
