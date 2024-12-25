@@ -54,6 +54,37 @@ def get_size(size):
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 # Ask Doubt on telegram @KingVJ0
+# Import necessary modules
+from pyrogram import Client, filters
+from pyrogram.types import Message
+
+# Handler for setting a caption
+@Client.on_message(filters.command("set_caption") & filters.private)
+async def set_caption(client, message: Message):
+    if len(message.command) < 2:
+        await message.reply("Usage: /set_caption [your custom caption]")
+        return
+    caption = message.text.split(" ", 1)[1]
+    user_id = message.from_user.id
+    await db.set_caption(user_id, caption)
+    await message.reply("✅ Custom caption has been set successfully!")
+
+# Handler for viewing the current caption
+@Client.on_message(filters.command("see_caption") & filters.private)
+async def see_caption(client, message: Message):
+    user_id = message.from_user.id
+    caption = await db.get_caption(user_id)
+    if caption:
+        await message.reply(f"Your current custom caption is:\n\n`{caption}`")
+    else:
+        await message.reply("❌ You have not set a custom caption.")
+
+# Handler for deleting the caption
+@Client.on_message(filters.command("del_caption") & filters.private)
+async def del_caption(client, message: Message):
+    user_id = message.from_user.id
+    await db.delete_caption(user_id)
+    await message.reply("✅ Custom caption has been deleted!")
 
 
 @Client.on_message(filters.command("start") & filters.incoming)
@@ -167,7 +198,8 @@ async def start(client, message):
         for msg in msgs:
             title = msg.get("title")
             size=get_size(int(msg.get("size", 0)))
-            f_caption=msg.get("caption", "")
+            user_id = message.from_user.id
+            f_caption=await db.get_caption(user_id)
             if BATCH_FILE_CAPTION:
                 try:
                     f_caption=BATCH_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
