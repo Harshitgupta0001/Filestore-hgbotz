@@ -202,7 +202,7 @@ async def start(client, message):
             f_caption=await db.get_caption(user_id)
             if BATCH_FILE_CAPTION:
                 try:
-                    f_caption=BATCH_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
+                    f_caption=f_caption.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
                 except Exception as e:
                     logger.exception(e)
                     f_caption=f_caption
@@ -304,10 +304,10 @@ async def start(client, message):
             file = getattr(msg, filetype.value)
             title = '' + ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), file.file_name.split()))
             size=get_size(file.file_size)
-            f_caption = f"<code>{title}</code>"
+            f_caption = f_caption
             if CUSTOM_FILE_CAPTION:
                 try:
-                    f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='')
+                    f_caption=f_caption.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='')
                 except:
                     return
             
@@ -344,12 +344,13 @@ async def start(client, message):
 # Ask Doubt on telegram @KingVJ01
     
     files = files_[0]
+    user_id = message.from_user.id
     title = files.file_name
     size=get_size(files.file_size)
-    f_caption=files.caption
+    f_caption=await db.get_caption(user_id)
     if CUSTOM_FILE_CAPTION:
         try:
-            f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
+            f_caption=f_caption.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
         except Exception as e:
             logger.exception(e)
             f_caption=f_caption
