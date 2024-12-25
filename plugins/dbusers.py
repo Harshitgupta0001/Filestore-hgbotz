@@ -60,4 +60,28 @@ class Database:
         await self.col.delete_many({'id': int(user_id)})
 
 
+# Add these methods to Database class
+
+    async def set_caption(self, user_id, caption):
+        """Set a custom caption for a user."""
+        await self.col.update_one(
+            {'id': int(user_id)},
+            {'$set': {'custom_caption': caption}},
+            upsert=True
+        )
+
+    async def get_caption(self, user_id):
+        """Get the custom caption for a user."""
+        user = await self.col.find_one({'id': int(user_id)})
+        return user.get('custom_caption') if user else None
+
+    async def delete_caption(self, user_id):
+        """Delete the custom caption for a user."""
+        await self.col.update_one(
+            {'id': int(user_id)},
+            {'$unset': {'custom_caption': ""}}
+        )
+
+
+
 db = Database(DATABASE_URI, DATABASE_NAME)
