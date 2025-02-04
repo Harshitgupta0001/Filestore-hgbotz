@@ -13,7 +13,7 @@ class script(object):
 # Ask Doubt on telegram @KingVJ01
 
     
-    CAPTION = """<b><pre>𝚃𝚒𝚃𝚕𝚎✨</pre> <b>{file_caption}</b>
+    CAPTION = """<b><pre>𝚃𝚒𝚃𝚕𝚎✨</pre> <b>{filee_caption}</b>
 <blockquote>sɪᴢᴇ ⚙️: {file_size}</blockquote>
 """ 
 
